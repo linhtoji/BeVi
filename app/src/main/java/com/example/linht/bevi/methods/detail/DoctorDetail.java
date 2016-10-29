@@ -15,7 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.List;
-import java.util.Objects;
 
 public class DoctorDetail extends AppCompatActivity
     implements DoctorDetailPresenter.ViewDoctorDetail {
@@ -31,7 +30,7 @@ public class DoctorDetail extends AppCompatActivity
   private DatabaseReference doctorInforGet;
   private int lastNumberPatient = 0;
   private int currentNUmber = 0;
-  private static final int MunitesWaiting = 5;
+  private static final int MinutesWaiting = 5;
 
   public DoctorDetail() {
     this.presenter = new DoctorDetailPresenter(this);
@@ -49,8 +48,8 @@ public class DoctorDetail extends AppCompatActivity
 
   private void setUpWaitingTime() {
     if (lastNumberPatient > currentNUmber){
-      int waitingTime = (lastNumberPatient - currentNUmber + 1) * MunitesWaiting;
-      wait.setText(String.format("%s %s %s","Please waiting about ",waitingTime, "munite"));
+      int waitingTime = (lastNumberPatient - currentNUmber + 1) * MinutesWaiting;
+      wait.setText(String.format("%s %s %s","Please waiting about ",waitingTime, "minute"));
     }
   }
 
