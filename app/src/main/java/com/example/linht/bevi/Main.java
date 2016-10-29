@@ -13,7 +13,7 @@ import com.example.linht.bevi.userInfor.UserInfoPresenter;
 import com.example.linht.bevi.userInfor.UserInforFragment;
 
 public class Main extends AppCompatActivity implements UserInfoPresenter.ViewUserInfo {
-  private static final int PERMISSIONS_REQUEST_CODE = 100;
+  private static final int REQUEST_CODE_LOCATION = 3;
   private UserInfoPresenter presenter;
 
   public Main() {
@@ -24,20 +24,16 @@ public class Main extends AppCompatActivity implements UserInfoPresenter.ViewUse
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     presenter.getUserState();
+    handleLocationPermission();
+  }
 
-    if (!havePermissions()) {
-      requestPermissions();
+  public void handleLocationPermission() {
+    int permissionCheck =
+        ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+    if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(this,
+          new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, REQUEST_CODE_LOCATION);
     }
-  }
-
-  private boolean havePermissions() {
-    return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-        == PackageManager.PERMISSION_GRANTED;
-  }
-
-  private void requestPermissions() {
-    ActivityCompat.requestPermissions(this,
-        new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_CODE);
   }
 
   @Override public void viewUserInfo(boolean userState) {

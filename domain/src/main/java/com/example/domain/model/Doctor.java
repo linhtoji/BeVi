@@ -10,6 +10,8 @@ public class Doctor {
   private String id;
   private String beaconId;
   private List<User> users;
+  private String lastPatientNumber;
+  private String currentPatientNumber;
 
   public String getNumber() {
     return number;
@@ -65,5 +67,21 @@ public class Doctor {
 
   public void setBeaconId(String beaconId) {
     this.beaconId = beaconId;
+  }
+
+  public String getLastPatientNumber() {
+    return lastPatientNumber;
+  }
+
+  public void setLastPatientNumber(String lastPatientNumber) {
+    this.lastPatientNumber = lastPatientNumber;
+  }
+
+  public String getCurrentPatientNumber() {
+    return currentPatientNumber;
+  }
+
+  public void setCurrentPatientNumber(String currentPatientNumber) {
+    this.currentPatientNumber = currentPatientNumber;
   }
 }

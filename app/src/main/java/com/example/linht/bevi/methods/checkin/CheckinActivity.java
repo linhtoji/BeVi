@@ -1,6 +1,10 @@
 package com.example.linht.bevi.methods.checkin;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +28,7 @@ public class CheckinActivity extends AppCompatActivity implements CheckinPresent
   private BeaconManager beaconManager;
   private String scanId;
   private List<Eddystone> eddystones;
+  private static final int REQUEST_CODE_LOCATION = 3;
 
   @BindView(R.id.listViewDoctor) ListView listViewDoctor;
 
@@ -35,9 +40,19 @@ public class CheckinActivity extends AppCompatActivity implements CheckinPresent
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_checkin);
     ButterKnife.bind(this);
+    handleLocationPermission();
     presenter.getListDoctor();
     beaconManager = new BeaconManager(this);
     scanBeacon();
+  }
+
+  public void handleLocationPermission() {
+    int permissionCheck =
+        ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+    if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(this,
+          new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, REQUEST_CODE_LOCATION);
+    }
   }
 
   @Override protected void onStart() {
