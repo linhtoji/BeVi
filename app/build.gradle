@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
   compileSdkVersion 23
@@ -9,6 +10,7 @@ android {
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
+    multiDexEnabled true
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
@@ -27,11 +29,13 @@ dependencies {
   compile project(':domain')
   compile project(':data')
 
+
+  compile 'com.google.code.gson:gson:2.4'
   compile 'com.android.support:appcompat-v7:23.4.0'
   compile 'com.google.code.gson:gson:2.4'
   compile 'com.android.support:support-v4:23.4.0'
-  compile 'com.google.android.gms:play-services:9.8.0'
+  compile 'com.google.android.gms:play-services-maps:9.8.0'
+  compile 'com.jakewharton:butterknife:8.4.0'
   testCompile 'junit:junit:4.12'
-
-  compile 'com.google.code.gson:gson:2.4'
+  apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
