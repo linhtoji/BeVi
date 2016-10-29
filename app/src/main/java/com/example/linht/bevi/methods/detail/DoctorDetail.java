@@ -23,6 +23,7 @@ public class DoctorDetail extends AppCompatActivity
   public static String DOCTOR_ID = "com.example.linht.bevi.methods";
   @BindView(R.id.userOrder) TextView userOrder;
   @BindView(R.id.currentOrder) TextView currentOrder;
+  @BindView(R.id.wait) TextView wait;
 
   private String doctorId;
   private DoctorDetailPresenter presenter;
@@ -30,6 +31,7 @@ public class DoctorDetail extends AppCompatActivity
   private DatabaseReference doctorInforGet;
   private int lastNumberPatient = 0;
   private int currentNUmber = 0;
+  private static final int MunitesWaiting = 5;
 
   public DoctorDetail() {
     this.presenter = new DoctorDetailPresenter(this);
@@ -43,6 +45,13 @@ public class DoctorDetail extends AppCompatActivity
     doctorInforGet = FirebaseDatabase.getInstance().getReference().child("doctor").child("d3");
     listenerCurrentNumber();
     listenerLastNumber();
+  }
+
+  private void setUpWaitingTime() {
+    if (lastNumberPatient > currentNUmber){
+      int waitingTime = (lastNumberPatient - currentNUmber + 1) * MunitesWaiting;
+      wait.setText(String.format("%s %s %s","Please waiting about ",waitingTime, "munite"));
+    }
   }
 
   private void setDoctorId() {
@@ -66,6 +75,7 @@ public class DoctorDetail extends AppCompatActivity
         Doctor doctor = dataSnapshot.getValue(Doctor.class);
         currentOrder.setText(doctor.getCurrentPatientNumber());
         currentNUmber = Integer.valueOf(doctor.getCurrentPatientNumber());
+        setUpWaitingTime();
       }
 
       @Override public void onCancelled(DatabaseError databaseError) {
@@ -82,6 +92,7 @@ public class DoctorDetail extends AppCompatActivity
         userOrder.setText(String.valueOf(Integer.valueOf(doctor.getLastPatientNumber()) + 1));
         lastNumberPatient = Integer.valueOf(doctor.getLastPatientNumber());
         setDoctorId();
+        setUpWaitingTime();
       }
 
       @Override public void onCancelled(DatabaseError databaseError) {
