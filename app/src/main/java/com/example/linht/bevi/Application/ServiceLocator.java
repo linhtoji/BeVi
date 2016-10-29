@@ -1,15 +1,16 @@
 package com.example.linht.bevi.application;
 
 import android.content.Context;
+import com.example.data.repository.DoctorRepositoryDummy;
 import com.example.data.repository.PrefrenceRepository;
-import com.example.domain.backendService.DoctorRepository;
+import com.example.domain.backendService.DoctorRepositoryService;
 
 public class ServiceLocator {
 
   private static Context context;
   private static ServiceLocator instance;
   private PrefrenceRepository prefrenceRepository;
-  private DoctorRepository doctorRepository;
+  private DoctorRepositoryDummy doctorRepository;
 
   public static ServiceLocator getInstance() {
     if (instance == null) {
@@ -36,11 +37,11 @@ public class ServiceLocator {
     this.prefrenceRepository = prefrenceRepository;
   }
 
-  public DoctorRepository getDoctorRepository() {
+  public DoctorRepositoryDummy getDoctorRepository() {
     return doctorRepository;
   }
 
-  public void setDoctorRepository(DoctorRepository doctorRepository) {
+  public void setDoctorRepository(DoctorRepositoryDummy doctorRepository) {
     this.doctorRepository = doctorRepository;
   }
 }

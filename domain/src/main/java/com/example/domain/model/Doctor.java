@@ -1,9 +1,38 @@
 package com.example.domain.model;
 
+import java.util.List;
+
 public class Doctor {
   private String image;
   private String name;
   private String department;
+  private String number;
+  private String id;
+  private List<User> users;
+
+  public String getNumber() {
+    return number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public List<User> getUsers() {
+    return users;
+  }
+
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
 
   public String getImage() {
     return image;

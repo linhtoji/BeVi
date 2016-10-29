@@ -21,11 +21,13 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".methods.booking.BookingActivity">
+    <activity android:name=".methods.booking.BookingActivity"
+        android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".methods.checkin.CheckinActivity">
+    <activity android:name=".methods.checkin.CheckinActivity"
+        android:screenOrientation="portrait">
     </activity>
-    <activity android:name=".methods.DoctorDetail">
+    <activity android:name=".methods.detail.DoctorDetail">
     </activity>
   </application>
 

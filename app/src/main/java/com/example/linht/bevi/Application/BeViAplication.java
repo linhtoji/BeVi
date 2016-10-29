@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.example.data.repository.DoctorRepositoryDummy;
 import com.example.data.repository.PrefrenceRepository;
-import com.example.domain.backendService.DoctorRepository;
+import com.example.domain.backendService.DoctorRepositoryService;
 
 public class BeViAplication extends Application {
   @Override public void onCreate() {
@@ -20,7 +20,7 @@ public class BeViAplication extends Application {
     prefrenceRepository.setContext(context);
     locator.setPrefrenceRepository(prefrenceRepository);
 
-    DoctorRepository doctorRepository = new DoctorRepositoryDummy();
+    DoctorRepositoryDummy doctorRepository = new DoctorRepositoryDummy();
     locator.setDoctorRepository(doctorRepository);
 
   }

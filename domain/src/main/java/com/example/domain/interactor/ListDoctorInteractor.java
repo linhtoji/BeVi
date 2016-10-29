@@ -1,12 +1,12 @@
 package com.example.domain.interactor;
 
-import com.example.domain.backendService.DoctorRepository;
+import com.example.domain.backendService.DoctorRepositoryService;
 import com.example.domain.model.Doctor;
 import java.util.List;
 
 public class ListDoctorInteractor {
   private FetchListDoctorInteface listener;
-  private DoctorRepository doctorRepository;
+  private DoctorRepositoryService doctorRepository;
 
   public void fetchListDoctor(){
     doctorRepository.fetchDoctors(new ResponseCallback<List<Doctor>>() {
@@ -24,7 +24,7 @@ public class ListDoctorInteractor {
     this.listener = listener;
   }
 
-  public void setDoctorRepository(DoctorRepository doctorRepository) {
+  public void setDoctorRepository(DoctorRepositoryService doctorRepository) {
     this.doctorRepository = doctorRepository;
   }
 
