@@ -1,5 +1,6 @@
 package com.example.linht.bevi.methods;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,9 @@ import java.util.List;
 public class ListDoctorAdapter extends BaseAdapter {
   private List<Doctor> doctors;
   private LayoutInflater mInflater;
-  public ListDoctorAdapter(List<Doctor> doctors) {
+  public ListDoctorAdapter(List<Doctor> doctors, Context context) {
     this.doctors = doctors;
+    mInflater = LayoutInflater.from(context);
   }
 
   @Override public int getCount() {
@@ -33,9 +35,19 @@ public class ListDoctorAdapter extends BaseAdapter {
     ViewHolder holder;
     if (convertView==null){
       holder = new ViewHolder();
-      convertView = mInflater.inflate(R.layout.doctor_item, parent, false)
+      convertView = mInflater.inflate(R.layout.doctor_item, parent, false);
+      holder.image = (ImageView) convertView.findViewById(R.id.doctorAva);
+      holder.name = (TextView) convertView.findViewById(R.id.doctorName);
+      holder.department = (TextView) convertView.findViewById(R.id.department);
+      convertView.setTag(holder);
+    } else {
+      holder = (ViewHolder) convertView.getTag();
     }
-    return null;
+    Doctor doctor = doctors.get(position);
+
+    holder.name.setText(doctor.getName());
+    holder.department.setText(doctor.getDepartment());
+    return convertView;
   }
 
   private class ViewHolder{
