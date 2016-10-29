@@ -56,6 +56,7 @@ public class DoctorRepositoryDummy implements DoctorRepositoryService {
     doctor2.setDepartment("Psychiatry & Neurology");
     doctor2.setNumber("46");
     doctor2.setId("d2");
+    doctor2.setBeaconId("edd1ebeac04e5defa017df9be790c76f");
     List<User> users2 = new ArrayList<>();
     for (int i = 0; i<55; i++){
       User user = new User();
@@ -68,7 +69,7 @@ public class DoctorRepositoryDummy implements DoctorRepositoryService {
     Doctor doctor3 = new Doctor();
     doctor3.setName("Dr. LE TRI DAT");
     doctor3.setDepartment("Plastic Surgery");
-    doctor3.setNumber("52");
+    doctor3.setBeaconId("edd1ebeac04e5defa017fa2daab6f2c1");
     doctor3.setId("d3");
     List<User> users3 = new ArrayList<>();
     for (int i = 0; i<25; i++){

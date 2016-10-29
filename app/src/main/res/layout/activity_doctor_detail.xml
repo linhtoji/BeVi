@@ -8,8 +8,14 @@
     android:orientation="vertical"
     tools:context="com.example.linht.bevi.methods.detail.DoctorDetail"
     >
+  <include
+      layout="@layout/tool_bar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      />
 
   <TextView
+
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
@@ -21,6 +27,7 @@
       android:id="@+id/wait"
       />
   <TextView
+      android:layout_below="@id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
@@ -54,7 +61,7 @@
         android:id="@+id/currentOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="9"
+        android:text="0"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         />
@@ -64,7 +71,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:gravity="center"
-      android:text="10"
+      android:text="0"
       android:textColor="@color/colorPrimaryDark"
       android:textSize="100sp"
       android:textStyle="bold"
