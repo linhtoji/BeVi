@@ -8,6 +8,7 @@ public class Doctor {
   private String department;
   private String number;
   private String id;
+  private String beaconId;
   private List<User> users;
 
   public String getNumber() {
@@ -56,5 +57,13 @@ public class Doctor {
 
   public void setDepartment(String department) {
     this.department = department;
+  }
+
+  public String getBeaconId() {
+    return beaconId;
+  }
+
+  public void setBeaconId(String beaconId) {
+    this.beaconId = beaconId;
   }
 }
