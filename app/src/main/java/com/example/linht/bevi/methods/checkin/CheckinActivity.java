@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.eddystone.Eddystone;
 import com.example.domain.model.Doctor;
@@ -53,6 +54,10 @@ public class CheckinActivity extends AppCompatActivity implements CheckinPresent
       ActivityCompat.requestPermissions(this,
           new String[] { Manifest.permission.ACCESS_FINE_LOCATION }, REQUEST_CODE_LOCATION);
     }
+  }
+
+  @OnClick(R.id.bt_back) public void onBackPress() {
+    onBackPressed();
   }
 
   @Override protected void onStart() {

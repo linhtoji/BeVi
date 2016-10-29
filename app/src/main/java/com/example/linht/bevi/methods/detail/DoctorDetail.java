@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.example.domain.model.Doctor;
 import com.example.domain.model.User;
 import com.example.linht.bevi.R;
@@ -44,6 +45,10 @@ public class DoctorDetail extends AppCompatActivity
     doctorInforGet = FirebaseDatabase.getInstance().getReference().child("doctor").child("d3");
     listenerCurrentNumber();
     listenerLastNumber();
+  }
+
+  @OnClick(R.id.bt_back) public void onBackPress() {
+    onBackPressed();
   }
 
   private void setUpWaitingTime() {

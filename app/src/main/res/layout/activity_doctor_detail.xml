@@ -8,8 +8,14 @@
     android:orientation="vertical"
     tools:context="com.example.linht.bevi.methods.detail.DoctorDetail"
     >
+  <include
+      layout="@layout/tool_bar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      />
 
   <TextView
+
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
@@ -21,6 +27,7 @@
       android:id="@+id/wait"
       />
   <TextView
+      android:layout_below="@id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
