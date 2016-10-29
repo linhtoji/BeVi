@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.linht.bevi">
 
-  <!-- To access Google+ APIs: -->
-  <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
   <application
       android:name=".application.BeViAplication"
@@ -14,7 +14,8 @@
       android:theme="@style/AppTheme">
     <activity
         android:name=".Main"
-        android:screenOrientation="portrait">
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateAlwaysHidden">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
@@ -28,6 +29,9 @@
         android:screenOrientation="portrait">
     </activity>
     <activity android:name=".methods.detail.DoctorDetail">
+    </activity>
+    <activity android:name=".methods.booking.BookindCalender"
+        android:screenOrientation="portrait">
     </activity>
   </application>
 
