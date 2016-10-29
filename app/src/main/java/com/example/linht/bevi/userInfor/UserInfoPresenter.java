@@ -12,6 +12,10 @@ public class UserInfoPresenter implements UserInteractor.UserInfoInterface{
 
   }
 
+  public void getUserState(){
+    view.viewUserInfo(true);
+  }
+
   @Override public void userState() {
   }
 
