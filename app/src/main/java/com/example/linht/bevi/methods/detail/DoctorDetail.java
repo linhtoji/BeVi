@@ -42,6 +42,6 @@ public class DoctorDetail extends AppCompatActivity
 
   @Override public void viewOrder(List<User> users) {
     int order = users.size();
-    userOrder.setText(String.valueOf(order));
+    userOrder.setText(String.valueOf(order + 1));
   }
 }
